@@ -1,0 +1,109 @@
+This program will allow user to  check plagiarism between two files.
+// code to transform the text
+""move data into file from the website and start reading data from the file word by word. Also Store ".",",",";",":" and "space" etc place them also as a seperate string index
+
+
+// place data in two string arrays from the file
+string1[],string2[] 
+// replace spaces in th string with null string
+for i=0 to string1.length
+	if(string1[i]==" ")
+	
+	 	string1[i]=="\0"
+	
+
+for i=0 to string1.length
+
+	if(string2[i]==" ")
+	
+	 	string2[i]=="\0"
+	
+
+//Take one line(until dot reaches) of string1 
+k=0
+currentString1[],currentString2
+check1=true
+check2=true
+while(check1)
+
+	if(string1[i]==".")
+	
+		check=false
+		currentString1[i]=string1[i]
+	
+	if(string1[i]="this"OR"is"OR"of"OR"\0"OR"i"OR".")         //we will either add more such most common words in this if OR we will remove it from our code
+	
+  		//pass
+
+	currentString1[i]=str[i]
+	i++
+
+while(check2)
+
+	if(string2[i]==".")
+	
+		check=false
+		currentString1[j]=string1[j]
+	
+	if(string2[j]="this"OR"is"OR"of"OR"\0"OR"i"OR".")         //we will either add more such most common words in this if OR we will remove it from our code
+	
+  		//pass
+	
+
+	currentString2[j]=str[j]
+	j++
+	 
+//now start comparing currentString1 with whole string2 to find longest common substring
+constant MAX_SIZE=10000
+resultArray[MAX_SIZE]
+memoizedArray[MAX_SIZE][MAX_SIZE]                      
+//Longest Common Substrings
+function LongestCommonSubString(string string1[],string string2[], lengthOfString1, lengthOfString2)
+
+	if(lengthOfString1==0 OR lengthOfString2==0)
+
+		return 0
+
+	//if teh data is alredy in the table then return it instead of recomputing it
+	if(memoizedArray[m-1][n-1]!=-1)                 //for this place -1 in the whole 2d array
+
+		return memoizedArray[m-1][n-1]
+
+	//case 1: if matches
+	if(string1[m-1]==string2[n-1])
+
+		resultArray[i]=string[m-1]
+		return 1+LongestCommonSubstring(string1,string2, lengthOfString1-1, lengthOfString2-1)
+
+	//if dunno match
+	else
+
+	return max(LongestCommonSubstring(string1,string2, lengthOfString1-1, lengthOfString2),LongestCommonSubsequence(string1,string2, lengthOfString1, 	lengthOfString2-1))
+
+
+
+//In the main function
+//call LongestCommonSubstring function to check the plagirasim and print the matched words.
+//now start comparing currentString with whole string2 to find longest common substring
+LongestCommonSubstring(currentString,string2,lengthofCurrentString,LengthOfstring2)
+//Print Longest Common Substring
+ print (resultArray)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
