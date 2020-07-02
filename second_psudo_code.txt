@@ -1,0 +1,35 @@
+file1, file2             //2 required file to check plagarism 
+
+str1[], str2[]               //two strins that take/copy lines from two differentt files
+
+while(!file1.eof())
+{
+	
+	file1 >> str1[0];
+	int i=1;
+
+	while (str1[i]!=".")
+	{
+		file1 >> str1[i];
+		i++;
+	}
+	while(!file2.eof())
+	{
+		file2>>str2[0];
+		int j=1;
+
+		while (str2[j]!=".")
+		{
+			file1 >> str2[i];
+			j++;
+		}
+		int temp=0;
+		if(LCS_length(str1,str2)>temp)
+		{
+			temp=LCS_length(str1,str2);
+			result_array[]=str2;
+		}
+	}
+	then check result_array[] in file2 and high light it
+}
+	
