@@ -1,0 +1,47 @@
+// this is the pseudo code for plagiarism checking tool
+//it will take 2 files and then highlight the matched area.
+file1,file2      
+str1[],str2[]
+while(!(end of file1))
+	file1<<str[0]
+	i=0;
+	while(str1[i]!=".")
+		file1<<str1[i];
+		i++
+	while(!(end of file2))
+		file2>>str2[0];
+		j=1
+		while(str2[j]!=0)
+			file2<<str2[i]
+			j++
+		temp=0;
+		if((LongestCommonSubstring(str1,str2,lengthOfString1, lengthOfString2)>temp)
+			temp=LongestCommonSubstring(str1,str2,lengthOfString1, lengthOfString2)
+			resultArray[]=str2;
+
+
+constant MAX_SIZE=10000
+resultArray[MAX_SIZE]
+memoizedArray[MAX_SIZE][MAX_SIZE]  
+//Longest Common Substrings
+function LongestCommonSubString(string string1[],string string2[], lengthOfString1, lengthOfString2)
+
+	if(lengthOfString1==0 OR lengthOfString2==0)
+
+		return 0
+
+	//if teh data is alredy in the table then return it instead of recomputing it
+	if(memoizedArray[m-1][n-1]!=-1)                 //for this place -1 in the whole 2d array
+
+		return memoizedArray[m-1][n-1]
+
+	//case 1: if matches
+	if(string1[m-1]==string2[n-1])
+
+		resultArray[i]=string[m-1]
+		return 1+LongestCommonSubstring(string1,string2, lengthOfString1-1, lengthOfString2-1)
+
+	//if dunno match
+	else
+
+	return max(LongestCommonSubstring(string1,string2, lengthOfString1-1, lengthOfString2),LongestCommonSubsequence(string1,string2, lengthOfString1, 	lengthOfString2-1))
