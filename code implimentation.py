@@ -1,3 +1,59 @@
+"""def dataReadingAndLCS(file1, file2):
+    global resultArray
+    global f1, f2
+    global res
+    i=0
+    j=0
+    char_arr1 = []
+    char_arr2 = []
+    string1 = []
+    string2 = []
+    #f1 = file1.read()
+    #f2 = file2.read()
+    l1 = len(f1)
+    l2 = len(f2)
+    f=0
+    file1Lines=0
+    file2Lines=0
+    for q in range(0,l1):
+        while f1[f] != ';':
+            char_arr1.append(f1[f])
+            f = f + 1
+        file1Lines=file1Lines+1
+    h=0
+    for q in range(0,l2):
+        while f2[h] != ';':
+            char_arr2.append(f2[h])
+            h = h + 1
+        file1Lines=file1Lines+1
+    print(file2Lines)
+    if(l1>=l2):
+        for g in range(0,l1):
+            while f1[i]!=';':
+                char_arr1.append(f1[i])
+                i=i+1
+            while f2[j]!=';':
+                char_arr2.append(f2[j])
+                j=j+1
+                        # temp = 0
+            s = LongestommonSubstring(char_arr2, char_arr2, len(char_arr1), len(char_arr2))
+            char_arr2 = []
+            char_arr1 = []
+            #resultArray = string2
+            res = res + s
+    else:
+        while f1[i] != ';':
+            char_arr1.append(f1[i])
+            i = i + 1
+        while f2[j] != ';':
+            char_arr2.append(f2[j])
+            j = j + 1
+            # temp = 0
+        s = LongestommonSubstring(char_arr2, char_arr2, len(char_arr1), len(char_arr2))
+        char_arr2 = []
+        char_arr1 = []
+        resultArray = string2
+        res = res + s"""
 MAX_SIZE = 10000
 resultArray=[''for i in range(MAX_SIZE)]
 def LongestommonSubstring(str1,str2, n1, n2):            #it is a function  that return the number of matched characters
@@ -18,7 +74,7 @@ def LongestommonSubstring(str1,str2, n1, n2):            #it is a function  that
                                LongestommonSubstring(str1, str2, n1 - 1, n2))
 
         return memoizedArray[n1 - 1][n2 - 1]
-def dataReadingAndLCS(file1, file2):
+def CPPdataReadingAndLCS(file1, file2):
     global resultArray
     global f1, f2
     global res
@@ -32,7 +88,7 @@ def dataReadingAndLCS(file1, file2):
     l2 = len(f2)
     for i in range(0, l1):
         temp=0
-        if f1[i] != '.':
+        if f1[i] != ';':
             char_arr1.append(f1[i])
         else:
             string1 = ""
@@ -43,7 +99,7 @@ def dataReadingAndLCS(file1, file2):
                   char_arr1[f] = '\0'
             for j in range(0, l2):
 
-                if f2[j] != '.':
+                if f2[j] != ';':
                     char_arr2.append(f2[j])
                 else:
                     string2 = ""
@@ -65,55 +121,45 @@ def dataReadingAndLCS(file1, file2):
             resultArray = string2
             #print(string2, end=" ")
             res += temp
-def CPPPlagiarismmChecking(file1,file2):
-    global resp
-    global f1, f2
-    char_arr1 = []
-    char_arr2 = []
-
-    f1 = file1.read()
-    f2 = file2.read()
-    l1 = len(f1)
-    l2 = len(f2)
-    for i in range(0, l1):
-
-        if f1[i] != '.':
-            char_arr1.append(f1[i])
-        else:
-            string1 = ""
-            for x in char_arr1:
-                string1 += x
-            for j in range(0, l2):
-
-                if f2[j] != '.':
-                    char_arr2.append(f2[j])
-                else:
-                    string2 = ""
-                    for y in char_arr2:
-                        string2 += y
-                    LongestommonSubstring(string1,string2,len(string1),len(string2))
-                    char_arr2 = []
-            char_arr1 = []
-
-
 res = 0
 k=0
-doc1 = open('text1.txt', 'r')
+doc1 = open('text3.cpp', 'r')
 textt1 = doc1.read()
+p1=textt1
 doc1.close()
 resultArray = [" "for i in range(MAX_SIZE)]
-doc2 = open('text2.txt', 'r')
+doc2 = open('text4.cpp', 'r')
+p2=doc2.read()
+p1=len(p1)
+p2=len(p2)
+doc2.close()
 memoizedArray = [[-1 for i in range(MAX_SIZE)]
       for i in range(len(textt1))]
-doc1=open('text1.txt','r')
-dataReadingAndLCS(doc1, doc2)
+doc1=open('text3.cpp','r')
+doc2=open('text4.cpp','r')
+CPPdataReadingAndLCS(doc1, doc2)
 print("matched words are: ")
 print(resultArray)
 #for i in range(len(resultArray)):
  #   if(resultArray[i]!=' '):
   #      print(resultArray[i], end=" ")
 print(" ")
-print(res)
 doc1.close()
 doc2.close()
-print(res/len(textt1)*100)
+numerator=0
+if(p1<p2):
+    numerator=p1
+elif(p1==p2):
+    numerator=p1
+else:
+    numerator=p2
+print(res)
+percent=(res/numerator)*100
+if(percent>70):
+    print("these are plagiarised files")
+else:
+    print("this is not plagiarised text")
+
+print("number of matched characters:",end="")
+print(" ")
+print(percent)
